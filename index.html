@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Recorder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Grabador de Pantalla</h1>
+
+        <div class="resolution-selector">
+            <label for="resolution">Resolución:</label>
+            <select id="resolution">
+                <option value="640x480">640×480 (SD)</option>
+                <option value="1280x720">1280×720 (HD)</option>
+                <option value="1920x1080" selected>1920×1080 (Full HD)</option>
+                <option value="2560x1440">2560×1440 (2K)</option>
+                <option value="3840x2160">3840×2160 (4K)</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button id="startBtn" class="btn start">⏺️ Iniciar Grabación</button>
+            <button id="stopBtn" class="btn stop" disabled>⏹️ Detener Grabación</button>
+        </div>
+
+        <div id="status" class="status hidden">
+            <span class="recording-indicator"></span>
+            <span id="timer">00:00</span>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
