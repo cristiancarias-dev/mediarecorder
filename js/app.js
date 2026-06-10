@@ -1,8 +1,5 @@
-import { elements } from './ui.js';
-import { startRecording, stopRecording } from './recorder.js';
-
-elements.startBtn.addEventListener('click', () => {
-  startRecording(elements.resolutionSelect.value);
+Recorder.elements.startBtn.addEventListener('click', function () {
+  Recorder.startRecording(Recorder.elements.resolutionSelect.value);
 });
 
-elements.stopBtn.addEventListener('click', stopRecording);
+Recorder.elements.stopBtn.addEventListener('click', Recorder.stopRecording);

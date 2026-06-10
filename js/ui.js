@@ -1,4 +1,6 @@
-export const elements = {
+window.Recorder = window.Recorder || {};
+
+Recorder.elements = {
   startBtn: document.getElementById('startBtn'),
   stopBtn: document.getElementById('stopBtn'),
   resolutionSelect: document.getElementById('resolution'),
@@ -7,24 +9,26 @@ export const elements = {
   feedbackEl: document.getElementById('feedback'),
 };
 
-export function setRecordingState(isRecording) {
+Recorder.setRecordingState = function (isRecording) {
+  const el = Recorder.elements;
   if (isRecording) {
-    elements.startBtn.disabled = true;
-    elements.stopBtn.disabled = false;
-    elements.resolutionSelect.disabled = true;
-    elements.statusEl.classList.remove('hidden');
-    elements.feedbackEl.textContent = 'Grabando...';
-    elements.feedbackEl.className = 'feedback success';
+    el.startBtn.disabled = true;
+    el.stopBtn.disabled = false;
+    el.resolutionSelect.disabled = true;
+    el.statusEl.classList.remove('hidden');
+    el.feedbackEl.textContent = 'Grabando...';
+    el.feedbackEl.className = 'feedback success';
   } else {
-    elements.startBtn.disabled = false;
-    elements.stopBtn.disabled = true;
-    elements.resolutionSelect.disabled = false;
-    elements.statusEl.classList.add('hidden');
-    elements.timerEl.textContent = '00:00';
+    el.startBtn.disabled = false;
+    el.stopBtn.disabled = true;
+    el.resolutionSelect.disabled = false;
+    el.statusEl.classList.add('hidden');
+    el.timerEl.textContent = '00:00';
   }
-}
+};
 
-export function showFeedback(message, type = '') {
-  elements.feedbackEl.textContent = message;
-  elements.feedbackEl.className = `feedback ${type}`;
-}
+Recorder.showFeedback = function (message, type) {
+  if (type === undefined) type = '';
+  Recorder.elements.feedbackEl.textContent = message;
+  Recorder.elements.feedbackEl.className = 'feedback ' + type;
+};
